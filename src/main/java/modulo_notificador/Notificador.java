@@ -2,6 +2,7 @@ package modulo_notificador;
 
 public class Notificador {
 	Notificador notificador;
+	INotificacion medio;
 	public static Notificador obtenerInstancia() {
 		if(!notificador){
 			notificador = new Notificador();
