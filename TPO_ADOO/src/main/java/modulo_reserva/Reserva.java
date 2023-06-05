@@ -30,6 +30,11 @@ public class Reserva {
         this.estado = estado;
     }
 
+	public EstadoReserva getEstado() {
+		// TODO Auto-generated method stub
+		return this.estado;
+	}
+
     /*
      * public List<Paquete> getPaquete() {
      * return paquete;

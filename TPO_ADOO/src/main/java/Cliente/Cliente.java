@@ -1,10 +1,11 @@
 package Cliente;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import modulo_reserva.Reserva;
 
-public class Cliente {
+public class Cliente extends Observable {
     private String nombre;
     private String apellido;
     private int dni;
@@ -48,5 +49,12 @@ public class Cliente {
 
     public boolean soyElCliente(int dni) {
         return this.dni == dni;
+    }
+
+    @Override
+    public String notificar() {
+        // Lógica de notificación utilizando un Notificador
+        // this.notificador.notificar(this.email, "Mensaje de notificación");
+        return "Notificación enviada al cliente: " + this.nombre + " " + this.apellido;
     }
 }
