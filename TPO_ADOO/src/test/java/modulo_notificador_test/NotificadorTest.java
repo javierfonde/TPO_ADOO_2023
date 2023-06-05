@@ -10,7 +10,7 @@ public class NotificadorTest {
 	Notificador notificador=new Notificador();
 	@Test
 	public void test() {
-		assertTrue(notificador.notificar("hola")=="hol");
+		assertTrue(notificador.notificar("hola")=="hola");
 	}
 	
 
