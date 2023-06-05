@@ -1,17 +1,28 @@
 package modulo_notificador;
 
-public class Notificador {
-	Notificador notificador;
-	INotificacion medio;
-	public static Notificador obtenerInstancia() {
-		if(!notificador){
-			notificador = new Notificador();
-		}
+import Cliente.Observable;
 
+public class Notificador {
+	static private Notificador notificador = null;
+	INotificacion medio = null;
+	public Notificador(INotificacion medio) {
+		this.medio = medio;
+	}
+	public static Notificador obtenerInstancia(INotificacion medio) {
+		if(notificador == null){
+			notificador = new Notificador(medio);
+		}
+		else{
+			notificador.cambiarMetodoDeNotificacion(medio);
+		}
+		return notificador;
 	}
 
-	//Este metodo es de prueba.
-	public String notificar(String mensaje) {
-		return mensaje;
+
+	public void cambiarMetodoDeNotificacion(INotificacion nuevo){
+		medio = nuevo;
+	}
+	public void notificar(Observable observable, Mensaje mensaje) {
+		medio.notificar(mensaje,observable)
 	}
 }
