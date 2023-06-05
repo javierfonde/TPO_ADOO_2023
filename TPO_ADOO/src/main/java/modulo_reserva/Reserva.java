@@ -18,7 +18,7 @@ public class Reserva {
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.cliente = cliente;
-        this.estado = estado;
+        this.estado = new Registrada(this);
         //this.paquete = paquete;
     }
 

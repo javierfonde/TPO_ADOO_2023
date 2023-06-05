@@ -57,4 +57,9 @@ public class Cliente extends Observable {
         // this.notificador.notificar(this.email, "Mensaje de notificación");
         return "Notificación enviada al cliente: " + this.nombre + " " + this.apellido;
     }
+
+	public String getNombre() {
+		// TODO Auto-generated method stub
+		return this.nombre;
+	}
 }
