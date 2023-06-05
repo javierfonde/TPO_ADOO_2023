@@ -2,23 +2,24 @@ package modulo_reserva;
 
 import java.util.Date;
 import java.util.List;
+import Cliente.Cliente;
 
 public class Reserva {
     private int numReserva;
     private Date checkIn;
     private Date checkOut;
-    // private Cliente cliente;
+    private Cliente cliente;
     private EstadoReserva estado;
-    // private List<Paquete> paquete;
+    //private List<Paquete> paquete;
 
-    public Reserva(int numReserva, Date checkIn, Date checkOut, Cliente cliente, EstadoReserva estado,
-            List<Paquete> paquete) {
+    public Reserva(int numReserva, Date checkIn, Date checkOut, Cliente cliente, EstadoReserva estado) {
+    	// ,List<Paquete> paquete
         this.numReserva = numReserva;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
-        // this.cliente = cliente;
+        this.cliente = cliente;
         this.estado = estado;
-        // this.paquete = paquete;
+        //this.paquete = paquete;
     }
 
     public boolean soyLaReserva(int numReserva) {

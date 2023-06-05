@@ -7,7 +7,7 @@
 		<version>3.0.6</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
+	<groupId>Cliente</groupId>
 	<artifactId>TPO_ADOO</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
