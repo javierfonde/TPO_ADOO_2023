@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import modulo_habitacion.Habitacion;
 import modulo_habitacion.Paquete;
+import modulo_habitacion.TV;
 import modulo_habitacion.TipoHabitacion;
 
 public class PaqueteTest {
@@ -15,6 +16,8 @@ public class PaqueteTest {
 	private Paquete paqueteTres = new Paquete();
 	private Habitacion habitacionUno = new Habitacion(285, 4, 8500.0, TipoHabitacion.Doble);
 	private Habitacion habitacionDos = new Habitacion(285, 4, 8500.0, TipoHabitacion.Doble);
+	private TV tv = new TV(500.0);
+	
 
 	@Test
 	public void agregarPaqueteSeEsperaQueSePuedaHacer() {
@@ -34,5 +37,15 @@ public class PaqueteTest {
 		paqueteUno.agregarItem(paqueteDos);
 		paqueteTres.agregarItem(paqueteUno);
 		assertFalse(paqueteDos.agregarItem(paqueteTres));
+	}
+	@Test
+	public void testCalcularCostoPaquete() {
+		habitacionUno.agregarItem(tv);
+		paqueteUno.agregarItem(habitacionUno);
+		paqueteUno.agregarItem(paqueteTres);
+		paqueteTres.agregarItem(habitacionDos);
+		paqueteTres.agregarItem(tv);
+		System.out.println(paqueteUno.calcularCostos());
+		assertTrue(18000.00==paqueteUno.calcularCostos());
 	}
 }
