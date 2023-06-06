@@ -16,6 +16,11 @@ public class TV extends Servicio {
 	public double calcularCostos() {
 		return this.costo;
 	}
+
+	@Override
+	public boolean quitarItem(Combinable item) {
+		return false;
+	}
 	
 
 }
