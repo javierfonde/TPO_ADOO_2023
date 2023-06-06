@@ -19,8 +19,8 @@ public class Habitacion extends Combinable {
 		this.tipo = tipo;
 	}
 
-	public EstadoHabitacion getEstado() {
-		return this.estado;
+	public String getEstado() {
+		return this.estado.getEstado();
 	}
 
 	public void cambiarEstado() {
@@ -78,7 +78,13 @@ public class Habitacion extends Combinable {
 			this.servicios.add(servicio);
 		}
 	}
+
 	public String reservar() {
 		return this.estado.reservar();
+	}
+
+	@Override
+	public boolean quitarItem(Combinable item) {
+		return servicios.remove(item);
 	}
 }

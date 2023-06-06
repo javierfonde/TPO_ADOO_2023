@@ -1,27 +1,22 @@
 package modulo_habitacion;
 
-public class Item extends Combinable{
+public class Internet extends Servicio {
 	private double costo;
-	private String descripcion;
 
-	public Item(String descripcion, double costo) {
-		this.descripcion = descripcion;
+	public Internet(double costo) {
 		this.costo = costo;
 	}
-	public double costo() {
-		return this.costo;
-	}
-	public String descripcion() {
-		return this.descripcion;
-	}
+
 	@Override
 	public boolean admiteReserva() {
 		return false;
 	}
+
 	@Override
 	public double calcularCostos() {
 		return this.costo;
 	}
+
 	@Override
 	public boolean quitarItem(Combinable item) {
 		return false;

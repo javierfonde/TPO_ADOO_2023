@@ -113,4 +113,13 @@ public class HabitacionTest {
 		assertFalse(TipoHabitacion.Familiar == habitacion.getTipo());
 	}
 
+	@Test
+	public void testCambioDeEstadoDisponibleReservada() {
+		assertTrue("Reservada" == habitacion.reservar());
+	}
+	
+	@Test
+	public void testVerficarEstadoDispobleAlCrearHabitacion() {
+		assertTrue("Disponible" == habitacion.getEstado());
+	}
 }
