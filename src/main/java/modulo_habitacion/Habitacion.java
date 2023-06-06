@@ -78,4 +78,7 @@ public class Habitacion extends Combinable {
 			this.servicios.add(servicio);
 		}
 	}
+	public String reservar() {
+		return this.estado.reservar();
+	}
 }
