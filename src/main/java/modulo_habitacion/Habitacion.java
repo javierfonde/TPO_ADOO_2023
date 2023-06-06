@@ -1,10 +1,11 @@
 package modulo_habitacion;
 
+import java.util.LinkedList;
 import java.util.List;
 
-public class Habitacion extends Combinable{
+public class Habitacion extends Combinable {
 	private EstadoHabitacion estado;
-	private List<Servicio> servicios;
+	private List<Servicio> servicios = new LinkedList<>();
 	private int cantidadPersonas;
 	private double costoBase;
 	private TipoHabitacion tipo;
@@ -17,37 +18,64 @@ public class Habitacion extends Combinable{
 		this.costoBase = costoBase;
 		this.tipo = tipo;
 	}
+
 	public EstadoHabitacion getEstado() {
 		return this.estado;
 	}
+
 	public void cambiarEstado() {
-		if(this.estado.getClass()==Disponible.class) {
-			this.estado=new Reservada();
-		}else {
-			this.estado=new Disponible();
+		if (this.estado.getClass() == Disponible.class) {
+			this.estado = new Reservada();
+		} else {
+			this.estado = new Disponible();
 		}
 	}
-	public void agregarServicio(Servicio nuevo) {
-		this.servicios.add(nuevo);
-	}
+
 	public void quitarServicio(Servicio retirar) {
 		this.servicios.remove(retirar);
 	}
+
 	@Override
 	public boolean admiteReserva() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-	@Override
-	public double calcularCostos() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-	@Override
-	public boolean equals(Object o) {		
 		return true;
 	}
+
+	@Override
+	public double calcularCostos() {
+		double costoTotal = this.costoBase;
+		if (this.servicios.size() > 0) {
+			for (Servicio servicio : this.servicios) {
+				costoTotal += servicio.calcularCostos();
+			}
+		}
+		return costoTotal;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		Habitacion otra = (Habitacion) o;
+		return this == otra;
+	}
+
 	public int getCantidaDePersonas() {
 		return this.cantidadPersonas;
+	}
+
+	public int getNRO() {
+		return this.nroDeHabitacion;
+	}
+
+	public double getCostoBase() {
+		return this.costoBase;
+	}
+
+	public TipoHabitacion getTipo() {
+		return this.tipo;
+	}
+
+	public void agregarServicio(Servicio servicio) {
+		if (!this.servicios.contains(servicio)) {
+			this.servicios.add(servicio);
+		}
 	}
 }
