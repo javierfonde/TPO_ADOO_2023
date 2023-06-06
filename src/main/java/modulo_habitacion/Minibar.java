@@ -21,9 +21,12 @@ public class Minibar extends Servicio {
 		}
 		return costo;
 	}
-	public void agregarItem(Item nuevo) {
-		if(!this.contenido.contains(nuevo)) {
-			this.contenido.add(nuevo);
+	@Override
+	public boolean agregarItem(Combinable item) {
+		if (item instanceof Item && !this.contenido.contains(item)) {
+			return this.contenido.add((Item) item);
+		} else {
+			return false;
 		}
 	}
 

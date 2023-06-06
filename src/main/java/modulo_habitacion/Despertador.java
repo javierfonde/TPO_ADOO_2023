@@ -1,6 +1,4 @@
-package modulo_habitacion_test;
-
-import modulo_habitacion.Servicio;
+package modulo_habitacion;
 
 public class Despertador extends Servicio {
 	private double costo;
@@ -17,6 +15,16 @@ public class Despertador extends Servicio {
 	@Override
 	public double calcularCostos() {
 		return this.costo;
+	}
+
+	@Override
+	public boolean quitarItem(Combinable item) {
+		return false;
+	}
+
+	@Override
+	public boolean agregarItem(Combinable item) {
+		return false;
 	}
 
 }

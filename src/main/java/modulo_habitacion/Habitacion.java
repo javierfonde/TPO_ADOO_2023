@@ -74,9 +74,7 @@ public class Habitacion extends Combinable {
 	}
 
 	public void agregarServicio(Servicio servicio) {
-		if (!this.servicios.contains(servicio)) {
-			this.servicios.add(servicio);
-		}
+
 	}
 
 	public String reservar() {
@@ -86,5 +84,14 @@ public class Habitacion extends Combinable {
 	@Override
 	public boolean quitarItem(Combinable item) {
 		return servicios.remove(item);
+	}
+
+	@Override
+	public boolean agregarItem(Combinable item) {
+		if (item instanceof Servicio && !(item instanceof Item) && !this.servicios.contains(item)) {
+			return this.servicios.add((Servicio) item);
+		} else {
+			return false;
+		}
 	}
 }

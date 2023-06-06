@@ -26,4 +26,8 @@ public class Item extends Combinable{
 	public boolean quitarItem(Combinable item) {
 		return false;
 	}
+	@Override
+	public boolean agregarItem(Combinable item) {
+		return false;
+	}
 }

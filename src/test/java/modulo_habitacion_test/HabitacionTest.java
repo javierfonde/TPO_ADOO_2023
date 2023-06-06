@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Before;
 import org.junit.Test;
 
+import modulo_habitacion.Despertador;
 import modulo_habitacion.Habitacion;
 import modulo_habitacion.Item;
 import modulo_habitacion.Minibar;
