@@ -4,7 +4,7 @@ import Cliente.Observable;
 
 public class Notificador {
 	static private Notificador notificador = null;
-	INotificacion medio = null;
+	INotificacion medio;
 	public Notificador(INotificacion medio) {
 		this.medio = medio;
 	}
@@ -22,7 +22,7 @@ public class Notificador {
 	public void cambiarMetodoDeNotificacion(INotificacion nuevo){
 		medio = nuevo;
 	}
-	public void notificar(Observable observable, Mensaje mensaje) {
-		medio.notificar(mensaje,observable)
+	public String notificar(Observable observable, Mensaje mensaje) {
+		return medio.notificar(mensaje,observable);
 	}
 }

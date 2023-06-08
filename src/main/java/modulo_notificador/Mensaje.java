@@ -11,6 +11,6 @@ public class Mensaje {
         this.emisor = emisor;
     }
     public String toString(){
-        return String.format("%1$s : %2$s de %3$s",asunto,cuerpo,emisor);
+        return String.format("%1$s: %2$s de %3$s",asunto,cuerpo,emisor);
     }
 }
