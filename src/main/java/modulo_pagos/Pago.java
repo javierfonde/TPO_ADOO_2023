@@ -1,9 +1,6 @@
 package metodopago;
-
-public class Pago {
-	
-	
-	
-	
+import Cliente.Observable;
+public interface Pago {
+	Comprobante cobrar(Factura factura);
 
 }

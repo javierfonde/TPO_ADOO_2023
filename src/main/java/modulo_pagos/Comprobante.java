@@ -17,4 +17,6 @@ public class Comprobante {
 	public double getMontoRecibido() {
 		return MontoRecibido;
 	}
+
 }	
+

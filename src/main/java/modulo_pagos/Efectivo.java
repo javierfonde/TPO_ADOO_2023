@@ -5,8 +5,8 @@ public class Efectivo {
 	private double DineroPagado;
 	private double cambio;
 	
-	public Comprobante Cobrar(Factura Factura) {
-		
+	public Comprobante cobrar (Factura factura) {
+		return new Comprobante();
 	}
 	
 
