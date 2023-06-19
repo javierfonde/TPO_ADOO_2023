@@ -1,5 +1,7 @@
 package metodopago;
 
+
+
 public class Efectivo {
 	
 	private double DineroPagado;

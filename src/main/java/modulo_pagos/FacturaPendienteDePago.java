@@ -1,15 +1,26 @@
 package metodopago;
 
-import modulo_reserva.Estado;
+
 
 public class FacturaPendienteDePago {
+	 private String leyenda = "Pendiente de pago"; // Atributo
+
+	    // Operación pagar que recibe un nuevo estado y devuelve un mensaje
+	    public String pagar(EstadoDeFactura nuevo) {
+	        // Lógica para realizar el pago y cambiar al nuevo estado
+	        // ...
+	        return "Pago realizado. Estado actualizado: " + nuevo.getLeyenda();
+	    }
+
+	    // Operación pagar sin parámetros que devuelve un mensaje
+	    public String pagar() {
+	        // Lógica para realizar el pago sin cambios en el estado
+	        // ...
+	        return "Pago realizado sin cambios en el estado.";
+	    }
 	
-	private String leyenda = "se realizo el pago, pendiente al pago";
-	
-	public String Pagar(Estado nuevo) {
-		nuevo = "Pendiente";
-		return leyenda;
-	}
-	
+	    public String getLeyenda() {
+	        return leyenda;
+	    }
 
 }

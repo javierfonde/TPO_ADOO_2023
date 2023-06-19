@@ -1,5 +1,7 @@
 package metodopago;
 
+
+
 public class Comprobante {
 	
 	private Factura Factura;

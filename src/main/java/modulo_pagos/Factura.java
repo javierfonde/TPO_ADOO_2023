@@ -1,11 +1,12 @@
 package metodopago;
 
-import modulo_reserva.Reserva;
 
+import Cliente.Observable;
+import Cliente.Reserva;
 import java.sql.Date;
 
 import modulo_reserva.Estado;
-
+import Cliente.EstadoReserva;
 public class Factura {
 	
 	private long NroDeFactura;
