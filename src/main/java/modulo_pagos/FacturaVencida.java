@@ -1,27 +1,27 @@
 package metodopago;
 
+public class FacturaVencida extends EstadoFactura {
+    private String leyenda = "Vuelva a generar reserva";
 
+    public FacturaVencida(Factura factura) {
+        super(factura);
+    }
 
-public class FacturaVencida {
+    @Override
+    public String pagar(EstadoDeFactura nuevo) {
+        if (factura != null) {
+            factura.setEstado(nuevo);
+        }
+        return "Pago realizado. Estado actualizado: " + nuevo.getLeyenda();
+    }
 
-	 private String leyenda = "Vuelva a generar reserva"; // Atributo
+    @Override
+    public String pagar() {
+        factura.setEstado(new FacturaPagada(factura));
+        return "Pago realizado sin cambios en el estado.";
+    }
 
-	    // Operación pagar que recibe un nuevo estado y devuelve un mensaje
-	    public String pagar(EstadoDeFactura nuevo) {
-	        // Lógica para realizar el pago y cambiar al nuevo estado
-	        // ...
-	        return "Pago realizado. Estado actualizado: " + nuevo.getLeyenda();
-	    }
-
-	    // Operación pagar sin parámetros que devuelve un mensaje
-	    public String pagar() {
-	        // Lógica para realizar el pago sin cambios en el estado
-	        // ...
-	        return "Pago realizado sin cambios en el estado.";
-	    }
-	
-	    public String getLeyenda() {
-	        return leyenda;
-	    }
-	
+    public String getLeyenda() {
+        return leyenda;
+    }
 }
