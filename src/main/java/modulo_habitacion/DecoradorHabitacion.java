@@ -1,8 +1,8 @@
 package modulo_habitacion;
 
-public class DecoradorHabitacion extends Habitacion{
+public abstract class DecoradorHabitacion extends Habitacion{
 			protected Habitacion habitacion;
-			private double descuento;
+			protected double descuento;
 			
 			public DecoradorHabitacion (Habitacion habitacion) {
 				super(habitacion);
@@ -17,15 +17,7 @@ public class DecoradorHabitacion extends Habitacion{
 				return descuento;
 			}
 
-		    public double calcularCostos() {
-		        double descuento = getDescuento();
-		        double costoBase = habitacion.getCostoBase();
-		        double costoFinal =  (costoBase * (1 - descuento));
-		        return costoFinal;
-		    }
-//QUEDA PENDIENTE, CAMBIAR EL NOMBRE DEL METODO "CALCULARCOSTOS" PORQUE ES UTILIZADO EN HABITACION. Y REDUCIR CODIGO
-
-
-			
+		    public abstract double calcularCostos();
+		    			
 			
 }

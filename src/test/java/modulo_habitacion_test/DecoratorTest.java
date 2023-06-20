@@ -1,6 +1,5 @@
 package modulo_habitacion_test;
 
-import static org.junit.Assert.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.Test;
