@@ -20,7 +20,6 @@ public class Paquete extends Combinable {
 		return costo;
 	}
 
-	@Override
 	public boolean agregarItem(Combinable item) {
 		boolean puedeInsertar = true;
 		if (this == item || this.incluye.contains(item)
@@ -40,7 +39,6 @@ public class Paquete extends Combinable {
 		}
 		return puedeInsertar;
 	}
-
 	@Override
 	public boolean quitarItem(Combinable item) {
 		boolean retiro = false;
