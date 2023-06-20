@@ -39,7 +39,7 @@ public class Paquete extends Combinable {
 		}
 		return puedeInsertar;
 	}
-
+	@Override
 	public boolean quitarItem(Combinable item) {
 		boolean retiro = false;
 		boolean encontrado = incluye.remove(item);

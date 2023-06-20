@@ -74,7 +74,7 @@ public class Habitacion extends Combinable {
 	}
 
 	public void agregarServicio(Servicio servicio) {
-
+		this.servicios.add(servicio);
 	}
 
 	public String reservar() {
