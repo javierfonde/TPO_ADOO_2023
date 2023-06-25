@@ -2,14 +2,14 @@ package modulo_pagos;
 
 import java.sql.Date;
 
-import cliente.Cliente;
-import modulo_reserva.Reserva;
+//import cliente.Cliente;
+//import modulo_reserva.Reserva;
 
 public class Factura {
 
     private long nroDeFactura;
-	private Reserva reserva;
-	private Cliente cliente;
+	//private Reserva reserva;
+	//private Cliente cliente;
 	private Date fechaDeEmision;
 	private Date fechaDeVencimiento;
 	private double monto;
@@ -51,17 +51,21 @@ public class Factura {
         return nroDeFactura;
     }
 
+    /* 
     public Reserva getReserva() {
         return reserva;
     }
+    */
 
     public String getLeyenda() {
         return estado.getLeyenda();
     }
     
+    /*
     public Cliente getCliente() {
         return cliente;
     }
+    */
 
     public Date getFechaDeEmision() {
         return fechaDeEmision;
