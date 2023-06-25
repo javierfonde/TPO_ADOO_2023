@@ -3,6 +3,8 @@ package Cliente;
 import java.util.ArrayList;
 import java.util.List;
 
+import modulo_notificador.INotificacion;
+import modulo_notificador.Notificador;
 import modulo_reserva.Reserva;
 
 public class Cliente extends Observable {
@@ -11,20 +13,21 @@ public class Cliente extends Observable {
     private int dni;
     private int telefono;
     private String email;
-    /*
-     * private Notificador notificador;
-     * private Cobrador cobrador;
+
+    private Notificador notificador;
+     /* private Cobrador cobrador;
      * private List<Comprobante> comprobantes;
      * private List<Factura> facturas;
      */
     private List<Reserva> reservas;
 
-    public Cliente(String nombre, String apellido, int dni, int telefono, String email) {
+    public Cliente(String nombre, String apellido, int dni, int telefono, String email, INotificacion medio) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.telefono = telefono;
         this.email = email;
+        this.notificador = Notificador.obtenerInstancia(medio);
         /*
          * this.comprobantes = new ArrayList<>();
          * this.facturas = new ArrayList<>();
@@ -32,12 +35,12 @@ public class Cliente extends Observable {
         this.reservas = new ArrayList<>();
     }
 
-    /*
-     * public void cambiarFormaDeContacto(Notificador nueva) {
-     * this.notificador = nueva;
-     * }
-     * 
-     * public void cambiarFormaDePago(Cobrador nueva) {
+
+     public void cambiarFormaDeContacto(INotificacion nuevo) {
+        this.notificador.cambiarMetodoDeNotificacion(nuevo);
+    }
+
+     /* public void cambiarFormaDePago(Cobrador nueva) {
      * this.cobrador = nueva;
      * }
      * 
