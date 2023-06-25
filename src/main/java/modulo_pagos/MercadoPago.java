@@ -1,4 +1,4 @@
-package metodopago;
+package modulo_pagos;
 
 public class MercadoPago implements IPago{
 	 private MercadoPagoAPI mercadoPago = new MercadoPagoAPI();
