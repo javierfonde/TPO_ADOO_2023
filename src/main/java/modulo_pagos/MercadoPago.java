@@ -1,8 +1,9 @@
 package metodopago;
 
-public class MercadoPago implements Pago{
-	 MercadoPagoApi api = new MercadoPagoApi();
+public class MercadoPago implements IPago{
+	 private MercadoPagoAPI mercadoPago = new MercadoPagoAPI();
 	 public Comprobante cobrar (Factura factura) {
-			return new Comprobante();
+		return new Comprobante(factura.Monto(),factura.MontoRecibido(), factura.getNroReserva(), "con tarjeta");
 	}
 }
+
