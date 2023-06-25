@@ -20,15 +20,14 @@ public class Factura {
         estado = new FacturaPendienteDePago(this);
     }
 
-    public Factura(long nroDeFactura, Reserva reserva, Cliente cliente, Date fechaDeEmision, Date fechaDeVencimiento, double monto, double montoRecibido, EstadoDeFactura estado) {
+	public Factura(long nroDeFactura, Date fechaDeEmision, Date fechaDeVencimiento, double monto, double montoRecibido ) {
+		
 		this.nroDeFactura = nroDeFactura;
-        this.reserva = reserva;
-        this.cliente= cliente;
-        this.fechaDeEmision = fechaDeEmision;
-        this.fechaDeVencimiento = fechaDeVencimiento;
+		this.fechaDeEmision = fechaDeEmision;
+		this.fechaDeVencimiento = fechaDeVencimiento;
 		this.monto = monto;
-        this.montoRecibido = montoRecibido;
-		this.estado = estado;
+		this.montoRecibido = montoRecibido;
+		
 	}
     
 	public String Pagar() {
