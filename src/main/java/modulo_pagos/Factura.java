@@ -1,41 +1,55 @@
 package metodopago;
 
-import modulo_reserva.Reserva;
+
+import Cliente.Observable;
+import Cliente.Reserva;
 
 import java.sql.Date;
 
-import modulo_reserva.Estado;
-
+import Cliente.EstadoReserva;
 public class Factura {
 	
-	private long nroDeFactura;
-	private Reserva reserva;
-	private Cliente cliente;
-	private Date fechaDeEmision;
-	private Date fechaDeVencimiento;
-	private double monto;
-	private EstadoDeFactura estado;
+	private long NroDeFactura;
+	private Reserva Reserva;
+	private Observable Cliente;
+	private Date FechaDeEmision;
+	private Date FechaDeVencimiento;
+	private double Monto;
+	private double MontoRecibido;
+	private EstadoReserva Estado ;
 	
-	public Factura() {
-        estado = new FacturaPendienteDePago(this);
-    }
-    
-    public void pagar() {
-        System.out.println(estado.getPagar());
-    }
-    
-    public void pagar(EstadoDeFactura nuevoEstado) {
-        estado = nuevoEstado;
-        System.out.println(estado.getPagar());
-    }
-    
-    public String getLeyenda() {
-        return estado.getLeyenda();
-    }
-    
-    public void setEstado(EstadoDeFactura estado) {
-        this.estado = estado;
-    }
+	public String Pagar() {
+		double calculo = MontoRecibido-Monto;
+		String respuesta; 
+		if (calculo>=0) {
+			respuesta = "Monto Abonado, el vuelto es: " + calculo;
+		}
+		else {
+			respuesta = "Falta abonar "+ calculo*-1;
+		}
+		return respuesta;
+	}
+	public Factura(long NroDeFactura, double Monto, double MontoRecibido ) {
+		
+		this.NroDeFactura = NroDeFactura;
+		this.FechaDeEmision = FechaDeEmision;
+		this.FechaDeVencimiento = FechaDeVencimiento;
+		this.Monto = Monto;
+		this.MontoRecibido = MontoRecibido;
+		
+	}
+	
+	public long getNroReserva() {
+		return NroDeFactura;
+	}
+	public double Monto() {
+		return Monto;
+	}
+	public double MontoRecibido() {
+		return MontoRecibido;
+	}
+	
+	
 }
 	
 	
