@@ -1,4 +1,4 @@
-package metodopago;
+package modulo_pagos;
 
 
 import Cliente.Observable;
