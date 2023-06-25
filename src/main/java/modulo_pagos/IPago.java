@@ -1,8 +1,9 @@
-/*package metodopago;
+package modulo_pagos;
 
-public interface Pago {
+import modulo_pagos.Comprobante;
+
+public interface IPago {
 	public Comprobante cobrar(Factura factura);
 	
 
 }
-*/

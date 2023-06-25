@@ -1,25 +1,39 @@
 package modulo_pagos;
 
-
-import Cliente.Observable;
-import Cliente.Reserva;
+import Cliente.Cliente;
+import modulo_reserva.Reserva;
 
 import java.sql.Date;
 
-import Cliente.EstadoReserva;
+//import cliente.Cliente;
+//import modulo_reserva.Reserva;
+
 public class Factura {
+
+    private long nroDeFactura;
+	private Reserva reserva;
+	private Cliente cliente;
+	private Date fechaDeEmision;
+	private Date fechaDeVencimiento;
+	private double monto;
+    private double montoRecibido;
+	private EstadoDeFactura estado;
 	
-	private long NroDeFactura;
-	private Reserva Reserva;
-	private Observable Cliente;
-	private Date FechaDeEmision;
-	private Date FechaDeVencimiento;
-	private double Monto;
-	private double MontoRecibido;
-	private EstadoReserva Estado ;
-	
+
+	public Factura(long nroDeFactura, Date fechaDeEmision, Date fechaDeVencimiento, double monto, double montoRecibido,Cliente cliente,Reserva reserva ) {
+		
+		this.nroDeFactura = nroDeFactura;
+		this.fechaDeEmision = fechaDeEmision;
+		this.fechaDeVencimiento = fechaDeVencimiento;
+		this.monto = monto;
+		this.montoRecibido = montoRecibido;
+        this.cliente = cliente;
+        this.reserva = reserva;
+		
+	}
+    
 	public String Pagar() {
-		double calculo = MontoRecibido-Monto;
+		double calculo = montoRecibido-monto;
 		String respuesta; 
 		if (calculo>=0) {
 			respuesta = "Monto Abonado, el vuelto es: " + calculo;
@@ -29,27 +43,54 @@ public class Factura {
 		}
 		return respuesta;
 	}
-	public Factura(long NroDeFactura, double Monto, double MontoRecibido ) {
-		
-		this.NroDeFactura = NroDeFactura;
-		this.FechaDeEmision = FechaDeEmision;
-		this.FechaDeVencimiento = FechaDeVencimiento;
-		this.Monto = Monto;
-		this.MontoRecibido = MontoRecibido;
-		
-	}
-	
-	public long getNroReserva() {
-		return NroDeFactura;
-	}
-	public double Monto() {
-		return Monto;
-	}
-	public double MontoRecibido() {
-		return MontoRecibido;
-	}
-	
-	
+    
+    public void pagar(EstadoDeFactura nuevoEstado) {
+        estado = nuevoEstado;
+        System.out.println(estado.pagar());
+    }
+    
+    public long getNroDeFactura() {
+        return nroDeFactura;
+    }
+
+
+    public int getReserva() {
+        return reserva.getNumReserva();
+    }
+
+
+    public String getLeyenda() {
+        return estado.getLeyenda();
+    }
+    
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+
+    public Date getFechaDeEmision() {
+        return fechaDeEmision;
+    }
+
+    public Date getFechaDeVencimiento() {
+        return fechaDeVencimiento;
+    }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public EstadoDeFactura getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoDeFactura estado) {
+        this.estado = estado;
+    }
+
+    public double getMontoRecibido() {
+        return montoRecibido;
+    }
 }
-	
-	
+

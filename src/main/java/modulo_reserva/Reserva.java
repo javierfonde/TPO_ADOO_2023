@@ -12,7 +12,7 @@ public class Reserva {
     private EstadoReserva estado;
     //private List<Paquete> paquete;
 
-    public Reserva(int numReserva, Date checkIn, Date checkOut, Cliente cliente, EstadoReserva estado) {
+    public Reserva(int numReserva, Date checkIn, Date checkOut, Cliente cliente) {
     	// ,List<Paquete> paquete
         this.numReserva = numReserva;
         this.checkIn = checkIn;
@@ -35,6 +35,9 @@ public class Reserva {
 		return this.estado;
 	}
 
+    public int getNumReserva() {
+        return numReserva;
+    }
     /*
      * public List<Paquete> getPaquete() {
      * return paquete;

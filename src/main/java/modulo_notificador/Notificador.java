@@ -1,6 +1,8 @@
 package modulo_notificador;
 
+
 import Cliente.Observable;
+
 
 public class Notificador {
 	static private Notificador notificador = null;

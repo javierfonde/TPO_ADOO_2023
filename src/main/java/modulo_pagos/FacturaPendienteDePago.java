@@ -1,23 +1,25 @@
-package metodopago;
+package modulo_pagos;
 
-public class FacturaPendienteDePago extends EstadoFactura {
-	private String leyenda = "Pendiente de pago";
+
+public class FacturaPendienteDePago extends EstadoDeFactura {
+	private static String leyenda = "Pendiente de pago";
 
     public FacturaPendienteDePago(Factura factura) {
-        super(factura);
+        super(factura, leyenda);
     }
 
 	@Override
 	public String pagar(EstadoDeFactura nuevo) {
-        if (Factura != null) {
-            Factura.setEstado(nuevo); 
+        if (factura != null) {
+            factura.setEstado(nuevo); 
+
         }
         return "Pago realizado. Estado actualizado: " + nuevo.getLeyenda();
     }
 
 	@Override
     public String pagar() {
-		factura.setEstado(new FacturaPagada(factura));
+		factura.setEstado(new FacturaPagada(factura, leyenda));
         return "Pago realizado sin cambios en el estado.";
     }
 

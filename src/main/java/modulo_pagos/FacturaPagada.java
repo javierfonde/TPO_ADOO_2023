@@ -1,13 +1,13 @@
-package metodopago;
+package modulo_pagos;
 
-import modul_pagos.EstadoDeFactura;
 
-public class FacturaPagada extends EstadoFactura {
+public class FacturaPagada extends EstadoDeFactura {
     private String leyenda = "Ya se registró el pago";
 
-    public FacturaPagada(Factura factura) {
-        super(factura);
+    public FacturaPagada(Factura factura, String leyenda) {
+        super(factura, leyenda);
     }
+
 
     @Override
     public String pagar(EstadoDeFactura nuevo) {

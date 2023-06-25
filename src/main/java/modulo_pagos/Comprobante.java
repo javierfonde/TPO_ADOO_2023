@@ -1,7 +1,6 @@
 package modulo_pagos;
 
 
-
 public class Comprobante {
 	
 	private Factura Factura;
