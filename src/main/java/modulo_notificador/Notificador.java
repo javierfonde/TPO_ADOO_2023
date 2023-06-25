@@ -1,8 +1,9 @@
 package modulo_notificador;
 
-//import cliente.Observable;
 
-/* 
+import Cliente.Observable;
+
+
 public class Notificador {
 	static private Notificador notificador = null;
 	INotificacion medio;
@@ -26,8 +27,4 @@ public class Notificador {
 	public String notificar(Observable observable, Mensaje mensaje) {
 		return medio.notificar(mensaje,observable);
 	}
-}
- */
-public class Notificador{
-	
 }

@@ -1,5 +1,8 @@
 package modulo_pagos;
 
+import Cliente.Cliente;
+import modulo_reserva.Reserva;
+
 import java.sql.Date;
 
 //import cliente.Cliente;
@@ -8,25 +11,24 @@ import java.sql.Date;
 public class Factura {
 
     private long nroDeFactura;
-	//private Reserva reserva;
-	//private Cliente cliente;
+	private Reserva reserva;
+	private Cliente cliente;
 	private Date fechaDeEmision;
 	private Date fechaDeVencimiento;
 	private double monto;
     private double montoRecibido;
 	private EstadoDeFactura estado;
 	
-	public Factura() {
-        estado = new FacturaPendienteDePago(this);
-    }
 
-	public Factura(long nroDeFactura, Date fechaDeEmision, Date fechaDeVencimiento, double monto, double montoRecibido ) {
+	public Factura(long nroDeFactura, Date fechaDeEmision, Date fechaDeVencimiento, double monto, double montoRecibido,Cliente cliente,Reserva reserva ) {
 		
 		this.nroDeFactura = nroDeFactura;
 		this.fechaDeEmision = fechaDeEmision;
 		this.fechaDeVencimiento = fechaDeVencimiento;
 		this.monto = monto;
 		this.montoRecibido = montoRecibido;
+        this.cliente = cliente;
+        this.reserva = reserva;
 		
 	}
     
@@ -51,21 +53,21 @@ public class Factura {
         return nroDeFactura;
     }
 
-    /* 
-    public Reserva getReserva() {
-        return reserva;
+
+    public int getReserva() {
+        return reserva.getNumReserva();
     }
-    */
+
 
     public String getLeyenda() {
         return estado.getLeyenda();
     }
     
-    /*
+
     public Cliente getCliente() {
         return cliente;
     }
-    */
+
 
     public Date getFechaDeEmision() {
         return fechaDeEmision;
@@ -87,4 +89,8 @@ public class Factura {
         this.estado = estado;
     }
 
+    public double getMontoRecibido() {
+        return montoRecibido;
+    }
 }
+

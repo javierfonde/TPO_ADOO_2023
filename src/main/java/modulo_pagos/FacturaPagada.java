@@ -1,11 +1,13 @@
 package modulo_pagos;
 
+
 public class FacturaPagada extends EstadoDeFactura {
     private String leyenda = "Ya se registró el pago";
 
     public FacturaPagada(Factura factura, String leyenda) {
         super(factura, leyenda);
     }
+
 
     @Override
     public String pagar(EstadoDeFactura nuevo) {

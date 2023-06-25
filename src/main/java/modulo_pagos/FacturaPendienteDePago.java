@@ -1,5 +1,6 @@
 package modulo_pagos;
 
+
 public class FacturaPendienteDePago extends EstadoDeFactura {
 	private static String leyenda = "Pendiente de pago";
 
@@ -11,6 +12,7 @@ public class FacturaPendienteDePago extends EstadoDeFactura {
 	public String pagar(EstadoDeFactura nuevo) {
         if (factura != null) {
             factura.setEstado(nuevo); 
+
         }
         return "Pago realizado. Estado actualizado: " + nuevo.getLeyenda();
     }

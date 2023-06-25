@@ -1,10 +1,12 @@
 package modulo_pagos;
 
+
 public class FacturaVencida extends EstadoDeFactura {
     private String leyenda = "Vuelva a generar, vencido!";
 
     public FacturaVencida(Factura factura) {
         super(factura, "Vuelva a generar, vencido!");
+
     }
 
     @Override
@@ -18,5 +20,9 @@ public class FacturaVencida extends EstadoDeFactura {
         return "La factura vencida no puede ser pagada nuevamente.";
     }
 
-    
+
+    public String getLeyenda() {
+        return leyenda;
+    }
+
 }

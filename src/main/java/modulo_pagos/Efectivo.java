@@ -1,13 +1,16 @@
 package modulo_pagos;
 
-public class Efectivo {
+
+
+public class Efectivo implements IPago{
 	
 	private double DineroPagado;
-	private double cambio;
+	private double cambio;//no lo uso ya que el vuelto lo calculo directamente en el comprobante 
 	
-	public Comprobante Cobrar(Factura Factura) {
-		return null;
-		
+
+	public Comprobante cobrar (Factura factura) {
+		return new Comprobante(factura.getMonto(),factura.getMontoRecibido(), factura.getReserva(), "con Efectivo");
+
 	}
 	
 
