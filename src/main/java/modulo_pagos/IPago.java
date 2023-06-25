@@ -1,6 +1,7 @@
 package metodopago;
 
 public interface Pago {
-	Comprobante cobrar(Factura factura);
+	public Comprobante cobrar(Factura factura);
+	
 
 }
