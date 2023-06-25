@@ -1,13 +1,19 @@
 package modulo_pagos;
 
+
+
 public class Cobrador {
-  private Pago medio;
+	private Pago medio;
 	
-	public Comprobante Cobrar(Factura Factura) {
-		
+	public void ObjetoPago(Pago medio) {
+        this.medio = medio;
+    } 
+	
+	public Comprobante cobrar (Factura factura) {
+		return new Comprobante();
 	}
 	
-	public void CambiarMedio(Pago nevo) {
-		
+	public void cambiarMetodoDeNotificacion(Pago nuevo){
+		this.medio = nuevo;
 	}
 }

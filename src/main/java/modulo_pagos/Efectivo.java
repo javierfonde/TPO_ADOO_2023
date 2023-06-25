@@ -1,4 +1,4 @@
-package metodopago;
+package modulo_pagos;
 
 public class Efectivo {
 	
@@ -6,6 +6,7 @@ public class Efectivo {
 	private double cambio;
 	
 	public Comprobante Cobrar(Factura Factura) {
+		return null;
 		
 	}
 	
