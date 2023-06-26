@@ -2,27 +2,22 @@ package modulo_pagos;
 
 
 public class FacturaPagada extends EstadoDeFactura {
-    private String leyenda = "Ya se registró el pago";
-
-    public FacturaPagada(Factura factura, String leyenda) {
-        super(factura, leyenda);
-    }
-
-
-    @Override
-    public String pagar(EstadoDeFactura nuevo) {
-        if (factura != null) {
-            factura.setEstado(nuevo);
-        }
-        return "Pago realizado. Estado actualizado: " + nuevo.getLeyenda();
+    public FacturaPagada() {
+        this.estado = "pagada";
     }
 
     @Override
     public String pagar() {
-        return "La factura ya se encuentra pagada.";
+        if(estado != "pagada"){
+            factura.setEstado(new FacturaPagada());
+        return "Pago realizado";
+        }
+        else{
+            return "La factura ya ha sido pagada anteriormente!";
+        }
     }
 
-    public String getLeyenda() {
-        return leyenda;
+    public String getEstado() {
+        return estado;
     }
 }

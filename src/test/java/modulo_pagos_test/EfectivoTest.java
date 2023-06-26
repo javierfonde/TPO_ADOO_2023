@@ -1,4 +1,4 @@
-package modulos_pagos_test;
+package modulo_pagos_test;
 
 import static org.junit.Assert.assertEquals;
 

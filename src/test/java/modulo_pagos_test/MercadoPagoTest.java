@@ -25,6 +25,4 @@ public class MercadoPagoTest {
         assertEquals("NroDeComprobante 123: Pago 2500.0 con tarjeta, de 2000.0 y se le dio de Vuelto 500.0",comprobante.toString());
     }
 
-
-
 }

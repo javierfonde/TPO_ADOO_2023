@@ -1,28 +1,32 @@
 package modulo_pagos;
 
 public abstract class EstadoDeFactura {
-    public Factura factura;
-    private String leyenda;
+  protected Factura factura;
+  protected String estado;
 
-    public EstadoDeFactura(Factura factura, String leyenda) {
-        this.factura = factura;
-        this.leyenda = leyenda;
-    }
+  public abstract String pagar();
 
-    public abstract String pagar();
+  public Factura getFactura() {
+    return factura;
+  }
 
-    protected abstract String pagar(EstadoDeFactura nuevo);
+  public void setFactura(Factura factura) {
+    this.factura = factura;
+  }
 
-    // Getters y setters
-    public Factura getFactura() {
-        return factura;
-    }
+  public String getEstado() {
+    return estado;
+  }
 
-    public void setFactura(Factura factura) {
-        this.factura = factura;
-    }
+  public void setEstado(String estado) {
+    this.estado = estado;
+  }
 
-    public String getLeyenda() {
-        return leyenda;
-    }
+
+
+
+
+
+
+ 
 }

@@ -2,11 +2,7 @@ package modulo_pagos;
 
 import Cliente.Cliente;
 import modulo_reserva.Reserva;
-
 import java.sql.Date;
-
-//import cliente.Cliente;
-//import modulo_reserva.Reserva;
 
 public class Factura {
 
@@ -32,22 +28,28 @@ public class Factura {
 		
 	}
     
-	public String Pagar() {
+	public String pagar() {
 		double calculo = montoRecibido-monto;
 		String respuesta; 
-		if (calculo>=0) {
-			respuesta = "Monto Abonado, el vuelto es: " + calculo;
-		}
-		else {
-			respuesta = "Falta abonar "+ calculo*-1;
-		}
-		return respuesta;
+        //if(this.estado.getEstado() != "vencida"){
+
+            if (calculo>=0) {
+			    respuesta = "pagada";
+                this.estado = new FacturaPagada();
+		    }
+            else {
+                respuesta = "pendiente";
+                this.estado = new FacturaPendienteDePago();
+            }
+		    return respuesta;
+
+        /*
+        }
+        else{
+            return "La factura se encuentra vencida. No se puede pagar!";
+        }
+		*/
 	}
-    
-    public void pagar(EstadoDeFactura nuevoEstado) {
-        estado = nuevoEstado;
-        System.out.println(estado.pagar());
-    }
     
     public long getNroDeFactura() {
         return nroDeFactura;
@@ -57,12 +59,6 @@ public class Factura {
     public int getReserva() {
         return reserva.getNumReserva();
     }
-
-
-    public String getLeyenda() {
-        return estado.getLeyenda();
-    }
-    
 
     public Cliente getCliente() {
         return cliente;
@@ -81,16 +77,22 @@ public class Factura {
         return monto;
     }
 
-    public EstadoDeFactura getEstado() {
-        return estado;
-    }
-
     public void setEstado(EstadoDeFactura estado) {
         this.estado = estado;
+    }
+    
+    public EstadoDeFactura getEstado() {
+        return estado;
     }
 
     public double getMontoRecibido() {
         return montoRecibido;
     }
+
+    
+
+   
+
+   
 }
 

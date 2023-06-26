@@ -4,7 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 import modulo_notificador.INotificacion;
+import modulo_notificador.Mensaje;
 import modulo_notificador.Notificador;
+import modulo_pagos.Cobrador;
+import modulo_pagos.Comprobante;
+import modulo_pagos.Factura;
 import modulo_reserva.Reserva;
 
 public class Cliente extends Observable {
@@ -15,10 +19,9 @@ public class Cliente extends Observable {
     private String email;
 
     private Notificador notificador;
-     /* private Cobrador cobrador;
-     * private List<Comprobante> comprobantes;
-     * private List<Factura> facturas;
-     */
+    private Cobrador cobrador;
+    private List<Comprobante> comprobantes;
+    private List<Factura> facturas;
     private List<Reserva> reservas;
 
     public Cliente(String nombre, String apellido, int dni, int telefono, String email, INotificacion medio) {
@@ -28,27 +31,25 @@ public class Cliente extends Observable {
         this.telefono = telefono;
         this.email = email;
         this.notificador = Notificador.obtenerInstancia(medio);
-        /*
-         * this.comprobantes = new ArrayList<>();
-         * this.facturas = new ArrayList<>();
-         */
+        this.comprobantes = new ArrayList<>();
+        this.facturas = new ArrayList<>();
         this.reservas = new ArrayList<>();
     }
 
 
-     public void cambiarFormaDeContacto(INotificacion nuevo) {
+    public void cambiarFormaDeContacto(INotificacion nuevo) {
         this.notificador.cambiarMetodoDeNotificacion(nuevo);
     }
 
-     /* public void cambiarFormaDePago(Cobrador nueva) {
-     * this.cobrador = nueva;
-     * }
-     * 
-     * public void pagar(Factura factura) {
-     * this.facturas.add(factura);
-     * this.cobrador.cobrar(factura);
-     * }
-     */
+    public void cambiarFormaDePago(Cobrador nueva) {
+        this.cobrador = nueva;
+    }
+    
+    public void pagar(Factura factura) {
+        this.facturas.add(factura);
+        this.cobrador.cobrar(factura);
+    }
+     
 
     public boolean soyElCliente(int dni) {
         return this.dni == dni;
@@ -56,13 +57,12 @@ public class Cliente extends Observable {
 
     @Override
     public String notificar() {
-        // Lógica de notificación utilizando un Notificador
-        // this.notificador.notificar(this.email, "Mensaje de notificación");
+        Mensaje mensaje = new Mensaje(this.nombre, this.email, this.apellido);
+        this.notificador.notificar(this, mensaje);
         return "Notificación enviada al cliente: " + this.nombre + " " + this.apellido;
     }
 
 	public String getNombre() {
-		// TODO Auto-generated method stub
 		return this.nombre;
 	}
 }
