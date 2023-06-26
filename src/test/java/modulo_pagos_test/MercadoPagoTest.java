@@ -21,7 +21,7 @@ public class MercadoPagoTest {
     Factura fact = new Factura(123,new Date(2015,2,21),new Date(2018,3,23), 2000, 2500,cliente,reserva);
     Comprobante comprobante=(tarj.cobrar(fact));
     @Test
-    public void TestPagoConEfectivo() {
+    public void TestPagoConMercadoPago() {
         assertEquals("NroDeComprobante 123: Pago 2500.0 con tarjeta, de 2000.0 y se le dio de Vuelto 500.0",comprobante.toString());
     }
 
