@@ -3,6 +3,7 @@ package modulo_reserva;
 import java.util.Date;
 import java.util.List;
 import Cliente.Cliente;
+import modulo_habitacion.Paquete;
 
 public class Reserva {
     private int numReserva;
@@ -10,18 +11,18 @@ public class Reserva {
     private Date checkOut;
     private Cliente cliente;
     private EstadoReserva estado;
-    //private List<Paquete> paquete;
+    private Paquete paquete;
 
     public Reserva(int numReserva, Date checkIn, Date checkOut, Cliente cliente) {
-    	// ,List<Paquete> paquete
         this.numReserva = numReserva;
         this.checkIn = checkIn;
         this.checkOut = checkOut;
         this.cliente = cliente;
         this.estado = new Registrada(this);
-        //this.paquete = paquete;
     }
-
+    public void setPaquete(Paquete paquete){
+        this.paquete=paquete;
+    }
     public boolean soyLaReserva(int numReserva) {
         return this.numReserva == numReserva;
     }
@@ -38,9 +39,9 @@ public class Reserva {
     public int getNumReserva() {
         return numReserva;
     }
-    /*
-     * public List<Paquete> getPaquete() {
-     * return paquete;
-     * }
-     */
+
+     public Paquete getPaquete() {
+        return paquete;
+     }
+
 }

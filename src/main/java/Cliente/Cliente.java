@@ -56,8 +56,8 @@ public class Cliente extends Observable {
     }
 
     @Override
-    public String notificar() {
-        Mensaje mensaje = new Mensaje(this.nombre, this.email, this.apellido);
+    public String notificar(String cuerpoMensaje) {
+        Mensaje mensaje = new Mensaje(this.nombre+" "+this.apellido , this.email, cuerpoMensaje);
         this.notificador.notificar(this, mensaje);
         return "Notificación enviada al cliente: " + this.nombre + " " + this.apellido;
     }

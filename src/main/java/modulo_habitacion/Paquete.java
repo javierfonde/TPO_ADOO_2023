@@ -5,6 +5,7 @@ import java.util.List;
 
 public class Paquete extends Combinable {
 	private List<Combinable> incluye = new LinkedList<>();
+	private int nroPaquete = 0;
 
 	@Override
 	public boolean admiteReserva() {
@@ -19,7 +20,13 @@ public class Paquete extends Combinable {
 		}
 		return costo;
 	}
-
+	public void setNroPaquete(int nroPaquete){
+		//utilizaria el ultimo nro + 1
+		this.nroPaquete = nroPaquete;
+	}
+	public int getNroPaquete(){
+		return nroPaquete;
+	}
 	public boolean agregarItem(Combinable item) {
 		boolean puedeInsertar = true;
 		if (this == item || this.incluye.contains(item)
